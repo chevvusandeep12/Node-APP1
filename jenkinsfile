@@ -1,0 +1,62 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from GitLab
+                git 'https://gitlab.com/sandeepintern/node-app.git'
+            }
+        }
+        
+        stage('Build and Test') {
+            steps {
+                sh 'curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -'
+                sh 'sudo apt update'
+                sh 'sudo apt-get install -y nodejs'
+                sh 'node -v'
+                sh 'sudo npm install'
+                sh 'sudo npm install mocha --save-dev'
+                sh 'sudo npm test'
+                // Create a tarball of the application
+                sh 'tar -cvf samplenode.tar app.js *html'
+                // Alternatively, you can use npm pack:
+                // sh 'npm pack'
+            }
+        }
+
+        stage('Static Code Analysis') {
+            steps {
+                sh 'sudo apt install openjdk-11-jdk'
+                sh 'sudo npm install -D owasp-dependency-check'
+                // Add owasp script to package.json
+                sh 'npm run owasp'
+            }
+        }
+
+        stage('SAST') {
+            steps {
+                sh 'wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.4.87374.zip'
+                sh 'sudo apt install openjdk-17-jdk -y'
+                sh 'unzip sonarqube-9.9.4.87374.zip'
+                sh '/home/ubuntu/nodebuild/sonarqube-9.9.4.87374/bin/linux-x86-64 ./sonar.sh start'
+                sh 'wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip'
+                // You can create sonar-project.properties file using echo or cat command
+                // For example:
+                // sh 'echo "sonar.projectKey=myapp\nsonar.projectVersion=1.0\nsonar.sourceEncoding=UTF-8\nsonar.sources=/home/ubuntu/nodebuild\nsonar.javascript.lcov.reportPaths=/home/ubuntu\nsonar.login=admin\nsonar.password=password" > sonar-project.properties'
+                // Run sonar-scanner
+                sh 'sonar-scanner'
+            }
+        }
+
+        stage('Code Coverage') {
+            steps {
+                sh 'sudo npm install nyc mocha-lcov-reporter --save-dev'
+                // Add test1 script to package.json
+                sh 'npm run test1'
+                // Generate code coverage report
+                sh 'nyc report'
+            }
+        }
+    }
+}
