@@ -1,0 +1,46 @@
+2024.02.21 12:50:09 INFO  app[][o.s.a.AppFileSystem] Cleaning or creating temp directory /home/ubuntu/nodebuild/sonarqube-9.9.4.87374/temp
+2024.02.21 12:50:09 INFO  app[][o.s.a.es.EsSettings] Elasticsearch listening on [HTTP: 127.0.0.1:9001, TCP: 127.0.0.1:42963]
+2024.02.21 12:50:09 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[ELASTICSEARCH] from [/home/ubuntu/nodebuild/sonarqube-9.9.4.87374/elasticsearch]: /home/ubuntu/nodebuild/sonarqube-9.9.4.87374/elasticsearch/bin/elasticsearch
+2024.02.21 12:50:09 INFO  app[][o.s.a.SchedulerImpl] Waiting for Elasticsearch to be up and running
+2024.02.21 12:50:18 INFO  app[][o.s.a.SchedulerImpl] Process[es] is up
+2024.02.21 12:50:18 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[WEB_SERVER] from [/home/ubuntu/nodebuild/sonarqube-9.9.4.87374]: /usr/lib/jvm/java-17-openjdk-amd64/bin/java -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/ubuntu/nodebuild/sonarqube-9.9.4.87374/temp -XX:-OmitStackTraceInFastThrow --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED --add-exports=java.base/jdk.internal.ref=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.management/sun.management=ALL-UNNAMED --add-opens=jdk.management/com.sun.management.internal=ALL-UNNAMED -Dcom.redhat.fips=false -Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError -Dhttp.nonProxyHosts=localhost|127.*|[::1] -cp ./lib/sonar-application-9.9.4.87374.jar:/home/ubuntu/nodebuild/sonarqube-9.9.4.87374/lib/jdbc/h2/h2-2.1.214.jar org.sonar.server.app.WebServer /home/ubuntu/nodebuild/sonarqube-9.9.4.87374/temp/sq-process6488166618735830382properties
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by org.sonar.process.PluginSecurityManager (file:/home/ubuntu/nodebuild/sonarqube-9.9.4.87374/lib/sonar-application-9.9.4.87374.jar)
+WARNING: Please consider reporting this to the maintainers of org.sonar.process.PluginSecurityManager
+WARNING: System::setSecurityManager will be removed in a future release
+2024.02.21 12:51:06 INFO  app[][o.s.a.SchedulerImpl] Process[web] is up
+2024.02.21 12:51:06 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[COMPUTE_ENGINE] from [/home/ubuntu/nodebuild/sonarqube-9.9.4.87374]: /usr/lib/jvm/java-17-openjdk-amd64/bin/java -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/home/ubuntu/nodebuild/sonarqube-9.9.4.87374/temp -XX:-OmitStackTraceInFastThrow --add-opens=java.base/java.util=ALL-UNNAMED --add-exports=java.base/jdk.internal.ref=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.management/sun.management=ALL-UNNAMED --add-opens=jdk.management/com.sun.management.internal=ALL-UNNAMED -Dcom.redhat.fips=false -Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError -Dhttp.nonProxyHosts=localhost|127.*|[::1] -cp ./lib/sonar-application-9.9.4.87374.jar:/home/ubuntu/nodebuild/sonarqube-9.9.4.87374/lib/jdbc/h2/h2-2.1.214.jar org.sonar.ce.app.CeServer /home/ubuntu/nodebuild/sonarqube-9.9.4.87374/temp/sq-process13428929841602329384properties
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by org.sonar.process.PluginSecurityManager (file:/home/ubuntu/nodebuild/sonarqube-9.9.4.87374/lib/sonar-application-9.9.4.87374.jar)
+WARNING: Please consider reporting this to the maintainers of org.sonar.process.PluginSecurityManager
+WARNING: System::setSecurityManager will be removed in a future release
+2024.02.21 12:51:08 WARN  app[][startup] ####################################################################################################################
+2024.02.21 12:51:08 WARN  app[][startup] Default Administrator credentials are still being used. Make sure to change the password or deactivate the account.
+2024.02.21 12:51:08 WARN  app[][startup] ####################################################################################################################
+2024.02.21 12:51:12 INFO  app[][o.s.a.SchedulerImpl] Process[ce] is up
+2024.02.21 12:51:12 INFO  app[][o.s.a.SchedulerImpl] SonarQube is operational
+2024-02-22 05:36:19,932 elasticsearch[sonarqube][masterService#updateTask][T#1] ERROR Recovering from StringBuilderEncoder.encode('2024.02.22 05:36:19 WARN  es[][o.e.c.s.MasterService] failing [update-settings [[components/p9VkVTgrTI6V6cHBvcLtig], [projectmeasures/PXZUHr2JStKb7gi51LB8dQ], [metadatas/OBp_lTSFQQ-cfn3VZukfBQ], [rules/eVNdj-DQTOCDx6Js_UVQOA], [issues/fW39tQ8gQNmP98jX-X_oRg], [views/pRUFivfyRxK3bi9QCZCR0A], [users/drvh_nrCTcmOP1y2V0vXaA]]]: failed to commit cluster state version [41]
+org.elasticsearch.cluster.coordination.FailedToCommitClusterStateException: publication failed
+	at org.elasticsearch.cluster.coordination.Coordinator$CoordinatorPublication$4.onFailure(Coordinator.java:1772) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.common.util.concurrent.ListenableFuture.notifyListenerDirectly(ListenableFuture.java:115) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.common.util.concurrent.ListenableFuture.addListener(ListenableFuture.java:55) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.cluster.coordination.Coordinator$CoordinatorPublication.onCompletion(Coordinator.java:1679) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.cluster.coordination.Publication.onPossibleCompletion(Publication.java:114) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.cluster.coordination.Publication.onPossibleCommitFailure(Publication.java:165) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.cluster.coordination.Publication.access$500(Publication.java:31) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.cluster.coordination.Publication$PublicationTarget$PublishResponseHandler.onFailure(Publication.java:376) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.cluster.coordination.Coordinator$4.onFailure(Coordinator.java:1421) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.cluster.coordination.PublicationTransportHandler$PublicationContext$1.onFailure(PublicationTransportHandler.java:402) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.cluster.coordination.PublicationTransportHandler$PublicationContext.lambda$sendClusterStateDiff$8(PublicationTransportHandler.java:491) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.action.ActionListener$DelegatingActionListener.onFailure(ActionListener.java:192) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.action.ActionListener$Delegating.onFailure(ActionListener.java:66) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.action.ActionListener$RunAfterActionListener.onFailure(ActionListener.java:350) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.action.ActionListener$Delegating.onFailure(ActionListener.java:66) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.action.ActionListener$RunAfterActionListener.onFailure(ActionListener.java:350) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.action.ActionListenerResponseHandler.handleException(ActionListenerResponseHandler.java:48) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.transport.TransportService$ContextRestoreResponseHandler.handleException(TransportService.java:1481) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.transport.TransportService$DirectResponseChannel.processException(TransportService.java:1607) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.transport.TransportService$DirectResponseChannel$2.run(TransportService.java:1586) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at org.elasticsearch.common.util.concurrent.ThreadContext$ContextPreservingRunnable.run(ThreadContext.java:718) ~[elasticsearch-7.17.15.jar:7.17.15]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
+	at java.util.concurrent.ThreadPoolExecu

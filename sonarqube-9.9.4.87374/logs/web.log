@@ -1,0 +1,132 @@
+2024.02.22 03:53:31 INFO  web[][o.a.c.h.Http11Processor] Error parsing HTTP request header\n Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x00{0x010x000x00w0x030x03Y~0xf7a0xcd0x190x140xb00x9fJs0xee0xfaw0xa30x7f0x0c$0x0c0x99'0x100x9c0x1e0xb30xa0m0x9a\0xe00xb480x000x000x1a0xc0/0xc0+0xc00x110xc00x070xc00x130xc00x090xc00x140xc00x0a0x000x050x00/0x0050xc00x120x000x0a0x010x000x0040x000x050x000x050x010x000x000x000x000x000x0a0x000x080x000x060x000x170x000x180x000x190x000x0b0x000x020x010x000x000x0d0x000x100x000x0e0x040x010x040x030x020x010x020x030x040x010x050x010x060x010xff0x010x000x010x00...]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:263)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2024.02.22 03:53:31 ERROR web[][o.a.c.h.Http11Processor] Error processing request
+java.lang.NullPointerException: Cannot invoke "String.replaceFirst(String, String)" because the return value of "javax.servlet.http.HttpServletRequest.getRequestURI()" is null
+	at org.sonar.server.platform.web.SecurityServletFilter.addSecurityHeaders(SecurityServletFilter.java:70)
+	at org.sonar.server.app.SecureErrorReportValve.invoke(SecureErrorReportValve.java:36)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2024.02.22 05:36:59 ERROR web[][o.s.s.m.ElasticSearchMetricTask] Failed to query ES status
+org.sonar.server.es.ElasticsearchException: Fail to execute es requestES cluster health request
+	at org.sonar.server.es.EsClient.execute(EsClient.java:313)
+	at org.sonar.server.es.EsClient.clusterHealth(EsClient.java:206)
+	at org.sonar.server.monitoring.ElasticSearchMetricTask.updateElasticSearchHealthStatus(ElasticSearchMetricTask.java:56)
+	at org.sonar.server.monitoring.ElasticSearchMetricTask.run(ElasticSearchMetricTask.java:50)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.elasticsearch.ElasticsearchStatusException: Elastics2024.02.22 05:40:59 ERROR web[][o.s.s.m.ElasticSearchMetricTask] Failed to query ES status
+org.sonar.server.es.ElasticsearchException: Fail to execute es requestES cluster health request
+	at org.sonar.server.es.EsClient.execute(EsClient.java:313)
+	at org.sonar.server.es.EsClient.clusterHealth(EsClient.java:206)
+	at org.sonar.server.monitoring.ElasticSearchMetricTask.updateElasticSearchHealthStatus(ElasticSearchMetricTask.java:56)
+	at org.sonar.server.monitoring.ElasticSearchMetricTask.run(ElasticSearchMetricTask.java:50)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.elasticsearch.ElasticsearchStatusException: Elasticsearch exception [type=master_not_discovered_exception, reason=null]
+	at org.elasticsearch.rest.BytesRestResponse.errorFromXContent(BytesRestResponse.java:178)
+	at org.elasticsearch.client.RestHighLevelClient.parseEntity(RestHighLevelClient.java:2484)
+	at org.elasticsearch.client.RestHighLevelClient.parseResponseException(RestHighLevelClient.java:2461)
+	at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:2184)
+	at org.elasticsearch.client.RestHighLevelClient.performRequest(RestHighLevelClient.java:2137)
+	at org.elasticsearch.client.RestHighLevelClient.performRequestAndParseEntity(RestHighLevelClient.java:2105)
+	at org.elasticsearch.client.ClusterClient.health(ClusterClient.java:151)
+	at org.sonar.server.es.EsClient.lambda$clusterHealth$27(EsClient.java:206)
+	at org.sonar.server.es.EsClient.execute(EsClient.java:311)
+	... 9 common frames omitted
+	Suppressed: org.elasticsearch.client.ResponseException: method [GET], host [http://localhost:9001], URI [/_cluster/health?master_timeout=30s&level=cluster&timeout=30s], status line [HTTP/1.1 503 Service Unavailable]
+{"error":{"root_cause":[{"type":"master_not_discovered_exception","reason":null}],"type":"master_not_discovered_exception","reason":null},"status":503}
+		at org.elasticsearch.client.RestClient.convertResponse(RestClient.java:347)
+		at org.elasticsearch.client.RestClient.performRequest(RestClient.java:313)
+		at org.elasticsearch.client.RestClient.performRequest(RestClient.java:288)
+		at org.elasticsearch.client.RestHighLevelClient.performClientRequest(RestHighLevelClient.java:2699)
+		at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:2171)
+		... 14 common frames omitted
+2024.02.22 05:41:39 ERROR web[][o.s.s.m.ElasticSearchMetricTask] Failed to query ES status
+org.sonar.server.es.ElasticsearchException: Fail to execute es requestES cluster health request
+	at org.sonar.server.es.EsClient.execute(EsClient.java:313)
+	at org.sonar.server.es.EsClient.clusterHealth(EsClient.java:206)
+	at org.sonar.server.monitoring.ElasticSearchMetricTask.updateElasticSearchHealthStatus(ElasticSearchMetricTask.java:56)
+	at org.sonar.server.monitoring.ElasticSearchMetricTask.run(ElasticSearchMetricTask.java:50)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.elasticsearch.ElasticsearchStatusException: Elasticsearch exception [type=master_not_discovered_exception, reason=null]
+	at org.elasticsearch.rest.BytesRestResponse.errorFromXContent(BytesRestResponse.java:178)
+	at org.elasticsearch.client.RestHighLevelClient.parseEntity(RestHighLevelClient.java:2484)
+	at org.elasticsearch.client.RestHighLevelClient.parseResponseException(RestHighLevelClient.java:2461)
+	at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:2184)
+	at org.elasticsearch.client.RestHighLevelClient.performRequest(RestHighLevelClient.java:2137)
+	at org.elasticsearch.client.RestHighLevelClient.performRequestAndParseEntity(RestHighLevelClient.java:2105)
+	at org.elasticsearch.client.ClusterClient.health(ClusterClient.java:151)
+	at org.sonar.server.es.EsClient.lambda$clusterHealth$27(EsClient.java:206)
+	at org.sonar.server.es.EsClient.execute(EsClient.java:311)
+	... 9 common frames omitted
+	Suppressed: org.elasticsearch.client.ResponseException: method [GET], host [http://localhost:9001], URI [/_cluster/health?master_timeout=30s&level=cluster&timeout=30s], status line [HTTP/1.1 503 Service Unavailable]
+{"error":{"root_cause":[{"type":"master_not_discovered_exception","reason":null}],"type":"master_not_discovered_exception","reason":null},"status":503}
+		at org.elasticsearch.client.RestClient.convertResponse(RestClient.java:347)
+		at org.elasticsearch.client.RestClient.performRequest(RestClient.java:313)
+		at org.elasticsearch.client.RestClient.performRequest(RestClient.java:288)
+		at org.elasticsearch.client.RestHighLevelClient.performClientRequest(RestHighLevelClient.java:2699)
+		at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:2171)
+		... 14 common frames omitted
+2024.02.22 05:42:19 ERROR web[][o.s.s.m.ElasticSearchMetricTask] Failed to query ES status
+org.sonar.server.es.ElasticsearchException: Fail to execute es requestES cluster health request
+	at org.sonar.server.es.EsClient.execute(EsClient.java:313)
+	at org.sonar.server.es.EsClient.clusterHealth(EsClient.java:206)
+	at org.sonar.server.monitoring.ElasticSearchMetricTask.updateElasticSearchHealthStatus(ElasticSearchMetricTask.java:56)
+	at org.sonar.server.monitoring.ElasticSearchMetricTask.run(ElasticSearchMetricTask.java:50)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.elasticsearch.ElasticsearchStatusException: Elasticsearch exception [type=master_not_discovered_exception, reason=null]
+	at org.elasticsearch.rest.BytesRestResponse.errorFromXContent(BytesRestResponse.java:178)
+	at org.elasticsearch.client.RestHighLevelClient.parseEntity(RestHighLevelClient.java:2484)
+	at org.elasticsearch.client.RestHighLevelClient.parseResponseException(RestHighLevelClient.java:2461)
+	at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:2184)
+	at org.elasticsearch.client.RestHighLevelClient.performRequest(RestHighLevelClient.java:2137)
+	at org.elasticsearch.client.RestHighLevelClient.performRequestAndParseEntity(RestHighLevelClient.java:2105)
+	at org.elasticsearch.client.ClusterClient.health(ClusterClient.java:151)
+	at org.sonar.server.es.EsClient.lambda$clusterHealth$27(EsClient.java:206)
+	at org.sonar.server.es.EsClient.execute(EsClient.java:311)
+	... 9 common frames omitted
+	Suppressed: org.elasticsearch.client.ResponseException: method [GET], host [http://localhost:9001], URI [/_cluster/health?master_timeout=30s&level=cluster&timeout=30s], status line [HTTP/1.1 503 Service Unavailable]
+{"error":{"root_cause":[{"type":"master_not_discovered_exception","reason":null}],"type":"master_not_discovered_exception","reason":null},"status":503}
+		at org.elasticsearch.client.RestClient.convertResponse(RestClient.java:347)
+		at org.elasticsearch.client.RestClient.performRequest(RestClient.java:313)
+		at org.elasticsearch.client.RestClient.performRequest(RestClient.java:288)
+		at org.elasticsearch.client.RestHighLevelClient.performClientRequest(RestHighLevelClient.java:2699)
+		at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:2171)
+		... 14 common frames omitted
