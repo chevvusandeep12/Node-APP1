@@ -30,7 +30,7 @@ COPY --from=builder /app/build ./build
 RUN npm install --production
 
 # Expose port (if needed)
-# EXPOSE 3000
+EXPOSE 3000
 
 # Command to run the application
 CMD ["node", "build/index.js"]
